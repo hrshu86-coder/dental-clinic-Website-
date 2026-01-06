@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightSmile Dental | Modern Family Dentistry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CORE THEME --- */
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --light: #f4f9f9;
+            --dark: #333;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- STYLISH HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .appointment-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .appointment-btn:hover { background: var(--secondary); transform: scale(1.05); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 4rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-content p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9; }
+
+        .cta-group { display: flex; gap: 20px; justify-content: center; }
+        .btn-main { padding: 15px 35px; background: var(--primary); color: white; border: none; border-radius: 5px; font-weight: 700; cursor: pointer; text-decoration: none; }
+        .btn-alt { padding: 15px 35px; background: white; color: var(--secondary); border: none; border-radius: 5px; font-weight: 700; cursor: pointer; text-decoration: none; }
+
+        /* --- QUICK INFO BAR --- */
+        .info-bar {
+            background: var(--secondary);
+            color: white;
+            padding: 30px 20px;
+            margin-top: -50px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+        .info-item:last-child { border-right: none; }
+        .info-item i { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; }
+
+        /* --- WHY CHOOSE US --- */
+        .why-us { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
+        .why-us-content { flex: 1; }
+        .why-us-image { flex: 1; }
+        .why-us-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .feature-box { display: flex; gap: 20px; margin-top: 30px; }
+        .feature-icon { background: var(--light); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; flex-shrink: 0; }
+
+        /* --- SERVICES PREVIEW --- */
+        .services-preview { background: var(--light); padding: 100px 20px; text-align: center; }
+        .preview-grid { max-width: 1200px; margin: 50px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .preview-card { background: white; padding: 40px; border-radius: 15px; transition: var(--transition); border-bottom: 4px solid transparent; }
+        .preview-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .preview-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--secondary); color: var(--white); padding: 80px 20px 20px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-links h4 { margin-bottom: 20px; border-left: 3px solid var(--primary); padding-left: 10px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #ccc; text-decoration: none; transition: var(--transition); }
+        .footer-links a:hover { color: var(--white); padding-left: 5px; }
+
+        .copyright { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #aaa; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .why-us { flex-direction: column; text-align: center; }
+            .info-bar { grid-template-columns: 1fr; margin-top: 20px; }
+            .info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tooth"></i> BrightSmile
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" style="color: var(--primary)">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="book-now.html" class="appointment-btn">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Care for a<br><span style="color: var(--primary);">Radiant Smile</span></h1>
+            <p>Combining advanced technology with a gentle touch to provide<br>the best dental experience in the city.</p>
+            <div class="cta-group">
+                <a href="book-now.html" class="btn-main">Book Appointment</a>
+                <a href="services.html" class="btn-alt">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-bar">
+        <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Call Us</h4>
+            <p>+1 (555) 123-4567</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Location</h4>
+            <p>123 Dental Lane, NY</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <h4>Open Hours</h4>
+            <p>Mon - Sat: 9am - 6pm</p>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="why-us-image">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" alt="Happy Patient">
+        </div>
+        <div class="why-us-content">
+            <h5 style="color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">Why Choose Us</h5>
+            <h2 style="font-size: 2.5rem; color: var(--secondary); margin: 10px 0;">We Care About Your Oral Health</h2>
+            <p>Our team of experienced doctors uses the latest technology to ensure your treatments are painless and efficient.</p>
+            
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fas fa-award"></i></div>
+                <div>
+                    <h4>Certified Experts</h4>
+                    <p>Our dentists are board-certified and undergo continuous training.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <div>
+                    <h4>Gentle Approach</h4>
+                    <p>We specialize in anxiety-free dentistry for adults and children.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-preview">
+        <h2 style="font-size: 2.5rem; color: var(--secondary);">Our Core Services</h2>
+        <p>Providing a wide range of dental solutions for your family.</p>
+        
+        <div class="preview-grid">
+            <div class="preview-card">
+                <i class="fas fa-teeth"></i>
+                <h3>General Dentistry</h3>
+                <p>Routine checkups, cleanings, and fillings to keep your teeth healthy.</p>
+            </div>
+            <div class="preview-card">
+                <i class="fas fa-magic"></i>
+                <h3>Cosmetic Surgery</h3>
+                <p>Whitening, veneers, and smile makeovers for a perfect look.</p>
+            </div>
+            <div class="preview-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Oral Surgery</h3>
+                <p>Advanced implants and painless extractions by specialists.</p>
+            </div>
+        </div>
+        <a href="services.html" style="display: inline-block; margin-top: 40px; color: var(--primary); font-weight: 700; text-decoration: none;">View All Services →</a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="logo" style="color: white; margin-bottom: 20px;">
+                    <i class="fas fa-tooth"></i> BrightSmile
+                </div>
+                <p style="color: #ccc;">Providing world-class dental care since 2010. Your health is our priority.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="book-now.html">Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Info</h4>
+                <p style="color: #ccc;"><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p style="color: #ccc;"><i class="fas fa-envelope"></i> help@brightsmile.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 BrightSmile Dental Clinic. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
